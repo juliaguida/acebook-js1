@@ -1,10 +1,10 @@
 <h1>Timeline</h1>
-
  {{#each posts}}
 <div class="posts" style="width: 18rem;">
   <div class="posts-body" style ="border-style:solid">
     <h2 class="card-title">{{this.message}}</h2>
-      <p class="card-title">{{this.createdAt}}</p>
+      <h4 class="card-title">{{this.author}}</h4>
+      <h4 class="card-title">{{this.createdAt}}</h4>
     <a href= "/comments/{{this.id}}" class="card-link">Comments</a>
   </div>
 </div>

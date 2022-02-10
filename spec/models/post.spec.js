@@ -11,8 +11,14 @@ describe('Post model', function() {
   });
 
   it('has a message', function() {
-    var post = new Post({ message: 'some message' });
+    var post = new Post({ message: 'some message'});
     expect(post.message).toEqual('some message');
+  });
+
+  it('has an author', function (){ 
+    var post = new Post ({author: 'justine'});
+    expect(post.author).toEqual('justine');
+
   });
 
   it('can list all posts', function(done) {
