@@ -63,3 +63,8 @@ typings/
 # cypress.io
 cypress/screenshots
 cypress/videos
+
+
+# json stuff
+package-lock.json
+package.json
