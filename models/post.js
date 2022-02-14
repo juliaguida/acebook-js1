@@ -1,14 +1,16 @@
 var mongoose = require('mongoose');
 
+
 var PostSchema = new mongoose.Schema({
   message: String,
   author: String,
   createdAt: {
     type: Date,
-    default: () => Date.now(),
+    default: () => Date.now()
   }
 });
 
 var Post = mongoose.model('Post', PostSchema);
 
 module.exports = Post;
+

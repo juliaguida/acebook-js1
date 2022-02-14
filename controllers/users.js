@@ -6,11 +6,25 @@ var UsersController = {
   },
 
   Create: function(req, res) {
-    var user = new User(req.body);
-    user.save(function(err) {
-      if (err) { throw err; }
+    var fileName = req.file != null ? req.file.filename : null;
+    var user = new User ( {
+      email: req.body.email,
+      password: req.body.password,
+      username: req.body.username,
+      profilePhoto : fileName
+    })
+
+    user.save(function(err){
+      if (err) {throw err;}
       res.status(201).redirect('/posts');
-    });
+      // res.status(201).render('posts/index', {username: req.body.username});
+    })
+    // JUST BLOCKING OUT ACTUAL FUNCTION TO SEE IF I CAN MANUALLY ADD IT 
+    // var user = new User(req.body);
+    // user.save(function(err) {
+    //   if (err) { throw err; }
+    //   res.status(201).redirect('/posts');
+    // });
   }
 };
 
