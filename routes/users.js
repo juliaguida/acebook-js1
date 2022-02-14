@@ -8,12 +8,12 @@ var User = require('../models/user');
 const multer  = require('multer');
 const path = require('path');
 const uploadPath = path.join('public', User.profilePhotoBasePath);
-const imageMimeTypes = ['images/jpeg', 'images/png', 'images/gif'];
+// const imageMimeTypes = ['images/jpeg', 'images/png', 'images/gif'];
 const upload = multer({
-  dest: uploadPath,
-  fileFilter: (req, file, callback) => {
-    callback(null,imageMimeTypes.includes(file.mimetype))
-  }
+  dest: uploadPath
+  // ,fileFilter: (req, file, callback) => {
+  //   callback(null,imageMimeTypes.includes(file.mimetype))
+  // }
 })
 // END
 
