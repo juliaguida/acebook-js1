@@ -17,7 +17,6 @@ var UsersController = {
     user.save(function(err){
       if (err) {throw err;}
       res.status(201).redirect('/posts');
-      // res.status(201).render('posts/index', {username: req.body.username});
     })
     // JUST BLOCKING OUT ACTUAL FUNCTION TO SEE IF I CAN MANUALLY ADD IT 
     // var user = new User(req.body);

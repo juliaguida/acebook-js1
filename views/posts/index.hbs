@@ -1,9 +1,14 @@
+<h1>Hi {{username}}!</h1>
+<h3>Profile Photo{{profilePhoto}}!</h3>
+<img height="150" width = '100' src='../uploads/profilePhotos/2c907c94c50446196a4a32d0fb8a6a18' >
+<img height="150" width = '100' src='../uploads/profilePhotos/{{profilePhoto}}' >
 <h1>Timeline</h1>
  {{#each posts}}
 <div class="posts" style="width: 18rem;">
   <div class="posts-body" style ="border-style:solid">
     <h2 class="card-title">{{this.message}}</h2>
-      <h4 class="card-title">{{this.createdAt}}</h4>
+       <h4 class="card-title">Posted by: {{this.author}}</h4>
+      <h4 class="card-title">Posted at: {{this.createdAt}}</h4>
     <a href= "/comments/{{this.id}}" class="card-link">Comments</a>
   </div>
 </div>

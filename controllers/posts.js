@@ -2,10 +2,11 @@ var Post = require('../models/post');
 
 var PostsController = {
   Index: function(req, res) {
+
     Post.find(function(err, posts) {
       if (err) { throw err; }
 
-      res.render('posts/index', { posts: posts.reverse() });
+      res.render('posts/index', { posts: posts.reverse(),  username: req.session.user.username, profilePhoto: req.session.user.profilePhoto});
     });
   },
   New: function(req, res) {
