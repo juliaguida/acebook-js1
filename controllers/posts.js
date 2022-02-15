@@ -5,7 +5,7 @@ var PostsController = {
 
     Post.find(function(err, posts) {
       if (err) { throw err; }
-
+      
       res.render('posts/index', { posts: posts.reverse(),  username: req.session.user.username, profilePhoto: req.session.user.profilePhoto});
     });
   },
