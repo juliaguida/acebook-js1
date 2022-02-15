@@ -13,12 +13,18 @@ var PostsController = {
     res.render('posts/new', {});
   },
   Create: function(req, res) {
-    var post = new Post(req.body);
-    post.save(function(err) { 
-      if (err) { throw err; }
+    var fileName = req.file != null ? req.file.filename : null;
+    var post = new Post ( {
+      message: req.body.message,
+      author: req.body.author,
+      // createdAt ignores as default value
+      authorPhoto : fileName
+    })
 
+    post.save(function(err){
+      if (err) {throw err;}
       res.status(201).redirect('/posts');
-    });
+    })
   }
 };
 

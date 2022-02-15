@@ -5,7 +5,7 @@ var profilePhotoBasePath = 'uploads/profilePhotos';
 var UserSchema = new mongoose.Schema({
   email: String,
   password: String,
-  username:String,
+  username: String,
   profilePhoto: {
     type: String
   }
