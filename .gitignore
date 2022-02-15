@@ -68,3 +68,7 @@ cypress/videos
 # updated package json from running 
 package.json
 package-lock.json
+
+# 
+public/uploads/profilePhotos
+public/uploads/authorPhotos

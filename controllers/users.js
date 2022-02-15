@@ -6,11 +6,20 @@ var UsersController = {
   },
 
   Create: function(req, res) {
-    var user = new User(req.body);
-    user.save(function(err) {
-      if (err) { throw err; }
+    var fileName = req.file != null ? req.file.filename : null;
+    var user = new User ( {
+      email: req.body.email,
+      password: req.body.password,
+      username: req.body.username,
+      profilePhoto : fileName
+    })
+
+    user.save(function(err){
+      if (err) {throw err;}
+      
+      req.session.user = user;
       res.status(201).redirect('/posts');
-    });
+    })
   }
 };
 

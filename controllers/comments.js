@@ -4,6 +4,8 @@ var CommentsController = {
   Index: function(req, res) {
     var post_id = req.params.id;
     Comment.find({postID: post_id}).exec(function (err, comments){
+      if (err){ throw err;}
+
       res.render('comments/index', {post_id: req.params.id, post_comments:comments} )
     });
   
@@ -17,8 +19,11 @@ var CommentsController = {
     var post_id = req.params.id;
     var comment_body = req.body.comment;
     var new_comments = new Comment({comment:comment_body, postID: post_id});
-    new_comments.save();
-    res.redirect('/posts');
+    new_comments.save(function (err){
+      if (err) {throw err;}
+      res.redirect('/posts');
+
+    });
   }
 };
 
