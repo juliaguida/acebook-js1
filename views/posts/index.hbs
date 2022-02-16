@@ -1,17 +1,24 @@
-<h1 style="text-align: center">Hi {{username}}!</h1>
+<h2 style="text-align: center">Hi {{username}}!</h2>
 <img src='../uploads/profilePhotos/{{profilePhoto}}' style="border-radius:50%;width:100px;height:100px; display: block; margin-left: auto; margin-right: auto">
-<h1>Timeline</h1>
+
+<h1 style= "text-align: center;">Timeline</h1>
+<form action='/posts/new' method ='GET'>
+<button type="submit" class="btn btn-primary btn-lg outline" style="display: block; margin-left: auto; margin-right: auto">New Post</button>
+</form>
 <a class="photo-link" href="/photos">View photos here</a>
+<br>
  {{#each posts}}
-<div class="posts" style="width: 18rem;">
-  <div class="posts-body" style ="border-style:solid">
+<div class="posts" style="width: 18rem; padding-left: 10px;">
+  <div class="posts-body" style ="border-style:solid; border-radius:10px; border-color: #357ebd;">
     <h2 class="card-title">{{this.message}}</h2>
        <img src='../uploads/authorPhotos/{{this.authorPhoto}}' style="border-radius:50%;width:70px;height:70px>
        <h4 class="card-title">Posted by: {{this.author}}</h4>
       <h4 class="card-title">Posted at: {{this.createdAt}}</h4>
-    <a href= "/comments/{{this.id}}" class="card-link">Comments</a>
+    <form action="/comments/{{this.id}}" method='GET'>
+      <button class="btn btn-primary btn-lg outline" style='border: transparent;' type='submit'>Comments</button>
+    </form>
   </div>
 </div>
 <br>
 {{/each}}
-<a class="new-post-link" href="/posts/new">New post</a>
+
