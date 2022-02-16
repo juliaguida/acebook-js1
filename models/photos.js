@@ -5,14 +5,14 @@ var photoSchema = new mongoose.Schema({
   title: String,
   desc: String,
   createdAt: {
-    type: Date,
-    default: () => Date.now()
+    type: String,
   },
   postedPhoto:{
     type:String
-  }
-
-});
+  },
+},
+  { timestamps: true},
+);
 
 var Photo = new mongoose.model('Photo', photoSchema);
 
