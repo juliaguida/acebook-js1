@@ -1,18 +1,17 @@
 
 <h1 style="text-align: center">Hi {{username}}!</h1>
-<img src='../uploads/postedPhotos/{{postedPhoto}}' style="border-radius:50%;width:100px;height:100px; display: block; margin-left: auto; margin-right: auto">
-<h1>Timeline</h1>
+<img src='../uploads/profilePhotos/{{profilePhoto}}' style="border-radius:50%;width:100px;height:100px; display: block; margin-left: auto; margin-right: auto">
  {{#each photos}}
-<div class="photos" style="width: 18rem;">
+<div class="photos" style="border-style:solid, display:flexbox; text-align:center">
   <div class="photos-body" style ="border-style:solid">
-    <h2 class="photo-title">{{this.title}}</h2>
-       <img src='../uploads/postedPhotos/{{this.postedPhoto}}' style="border-radius:50%;width:70px;height:70px>
-       <h4 class="card-title">Description: {{this.author}}</h4>
+    <h2> {{this.title}}</h2>
+       <img src='../uploads/postedPhotos/{{this.postedPhoto}}' style="display:flexbox; max-width:100%; max-height:100%;">
+       <h4 class="card-title">Description: {{this.desc}}</h4>
       <h4 class="card-title">Posted at: {{this.createdAt}}</h4>
     <a href= "/comments/{{this.id}}" class="card-link">Comments</a>
   </div>
 </div>
 <br>
 {{/each}}
-<a class="new-photo-link" href="/photos/new">New photo</a>
-<a class="homelin" href="/photos/index">Back to posts</a>
+<a class="new-photo-link" href="/photos/upload">New photo</a>
+<a class="homelin" href="/posts">Back to posts</a>

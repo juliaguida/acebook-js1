@@ -4,10 +4,10 @@ var postedPhotoBasePath = 'uploads/postedPhotos';
 var photoSchema = new mongoose.Schema({
   title: String,
   desc: String,
-  // createdAt: {
-  //   type: Date,
-  //   default: () => Date.now()
-  // },
+  createdAt: {
+    type: Date,
+    default: () => Date.now()
+  },
   postedPhoto:{
     type:String
   }
