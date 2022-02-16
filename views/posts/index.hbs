@@ -6,8 +6,22 @@
     <h2 class="card-title">{{this.message}}</h2>
       <p class="card-title">{{this.createdAt}}</p>
     <a href= "/comments/{{this.id}}" class="card-link">Comments</a>
-  </div>
-</div>
-<br>
-{{/each}}
-<a class="new-post-link" href="/posts/new">New post</a>
+    <button id={{this.id}} class="btnclick" onclick="CountLikes(this);" type="button"> Like <p id="display">{{this.likes}}</p></button>
+    <script type="text/javascript">
+        var count = 0;
+        function CountLikes(element) {
+          fetch(`/posts/${element.id}/likes`, {
+          method: 'POST',
+          mode: 'cors',
+          cache: 'no-cache',
+          credentials: 'same-origin', 
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          redirect: 'follow',
+          referrerPolicy: 'no-referrer', 
+        });
+          element.getElementsByTagName('p')[0].innerText++
+        console.log(element)
+        }
+    </script>

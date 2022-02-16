@@ -2,10 +2,11 @@ var mongoose = require('mongoose');
 
 var PostSchema = new mongoose.Schema({
   message: String,
+  likes: Number,
   createdAt: {
     type: Date,
-    default: () => Date.now(),
-  }
+    default: () => Date.now()
+  },
 });
 
 var Post = mongoose.model('Post', PostSchema);

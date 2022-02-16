@@ -7,6 +7,7 @@ describe('Timeline', function() {
 
     // cy.visit('/posts');
     cy.contains('New post').click();
+    cy.contains('Like 0').click();
 
     cy.get('#new-post-form').find('[type="text"]').type('Hello, world!');
     cy.get('#new-post-form').submit();

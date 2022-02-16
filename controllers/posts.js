@@ -7,6 +7,7 @@ var PostsController = {
 
       res.render('posts/index', { posts: posts.reverse() });
     });
+
   },
   New: function(req, res) {
     res.render('posts/new', {});
@@ -18,6 +19,17 @@ var PostsController = {
 
       res.status(201).redirect('/posts');
     });
+  },
+
+  CountLikes: function(req,) {
+    Post.findByIdAndUpdate(
+      req.params.id,
+       { $inc: { likes: 1 } },
+      {new: true}, 
+      function(err) {
+        if (err) { throw err; }
+      }
+    )
   }
 };
 
