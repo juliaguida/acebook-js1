@@ -7,8 +7,7 @@ var PostSchema = new mongoose.Schema({
   message: String,
   author: String,
   createdAt: {
-    type: Date,
-    default: () => Date.now()
+    type: String,
   },
   authorPhoto:{
     type:String
