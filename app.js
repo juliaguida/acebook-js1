@@ -12,6 +12,7 @@ var postsRouter = require('./routes/posts');
 var sessionsRouter = require('./routes/sessions');
 var usersRouter = require('./routes/users');
 var commentsRouter = require('./routes/comments');
+var photosRouter = require('./routes/photos')
 
 var app = express();
 
@@ -61,6 +62,7 @@ app.use('/posts', sessionChecker, postsRouter);
 app.use('/sessions', sessionsRouter);
 app.use('/users', usersRouter);
 app.use('/comments', commentsRouter);
+app.use('/photos', photosRouter);
 
 
 
