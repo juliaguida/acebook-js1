@@ -1,9 +1,13 @@
-<h1>Comments</h1>
+<div style='padding-left: 10px;'>
+  <h1>Comments</h1>
   {{#each post_comments}}
     <li><h4 class="card-title">{{this.comment}}</h4></li>
 {{/each}}
     {{this.comments}}
 <form action='/comments/{{post_id}}/new' method='Get'>
-        <input type="submit" value="New comment" id = 'new-comment'>
+        <input type="submit" class="btn btn-primary btn-lg outline" value="New comment" id = 'new-comment'>
 </form>
-<a href='/posts'>Back to timeline</a>
+<form action='/posts' method ='GET'>
+<button type="submit" class="btn btn-primary btn-lg outline" style="display: block; margin-left: auto; margin-right: auto">Back to timeline</button>
+</form>
+</div>
