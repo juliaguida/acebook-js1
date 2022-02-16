@@ -8,8 +8,8 @@
   </head>
   <body>
 
-    <form action='/sessions?_method=DELETE' method='POST'>
-    </form>
+    {{!-- <form action='/sessions?_method=DELETE' method='POST'>
+    </form> --}}
 
     <nav class="navBar">
       <div class="navBar-title">Acebook</div>
@@ -22,7 +22,9 @@
       <ul>
         <li><a href="/users/new">Sign Up</a></li>
         <li><a href="/sessions/new">Sign In</a></li>
-        <li><a href="/sessions?_method=DELETE">Log Out</a></li>
+        <form id= 'log-out'action='/sessions?_method=DELETE' method='POST'>
+        <li><a href="javascript:{}" onclick= "document.getElementById('log-out').submit(); return false;">Log out</a> </li> 
+        </form>
         </ul>
       </div> 
     </nav>
