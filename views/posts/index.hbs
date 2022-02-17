@@ -8,7 +8,7 @@
 <a class="photo-link" href="/photos">View photos here</a>
 <br>
  {{#each posts}}
-<div class="posts" style="width: 18rem; padding-left: 10px;">
+ <div class="posts" style="width: 18rem; padding-left: 10px;">
   <div class="posts-body" style ="border-style:solid; border-radius:10px; border-color: #357ebd;">
     <h2 class="card-title">{{this.message}}</h2>
        <img src='../uploads/authorPhotos/{{this.authorPhoto}}' style="border-radius:50%;width:70px;height:70px>
@@ -17,8 +17,28 @@
     <form action="/comments/{{this.id}}" method='GET'>
       <button class="btn btn-primary btn-lg outline" style='border: transparent;' type='submit'>Comments</button>
     </form>
+    <button id={{this.id}} class="btnclick" onclick="CountLikes(this);" type="button"> Like <p id="display">{{this.likes}}</p></button>
+    <script type="text/javascript">
+        var count = 0;
+        function CountLikes(element) {
+          fetch(`/posts/${element.id}/likes`, {
+          method: 'POST',
+          mode: 'cors',
+          cache: 'no-cache',
+          credentials: 'same-origin', 
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          redirect: 'follow',
+          referrerPolicy: 'no-referrer', 
+        });
+          element.getElementsByTagName('p')[0].innerText++
+        console.log(element)
+        }
+    </script>
   </div>
 </div>
 <br>
 {{/each}}
-
+    
+ 

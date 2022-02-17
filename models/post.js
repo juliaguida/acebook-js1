@@ -5,6 +5,7 @@ var authorPhotoBasePath = 'uploads/authorPhotos';
 
 var PostSchema = new mongoose.Schema({
   message: String,
+  likes: Number,
   author: String,
   createdAt: {
     type: String,

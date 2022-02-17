@@ -16,5 +16,6 @@ const upload = multer({
 router.get('/', PostsController.Index);
 router.post('/', upload.single('authorPhoto'), PostsController.Create);
 router.get('/new', PostsController.New);
+router.post('/:id/likes', PostsController.CountLikes);
 
 module.exports = router;

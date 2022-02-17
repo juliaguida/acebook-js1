@@ -8,6 +8,7 @@ var PostsController = {
       
       res.render('posts/index', { posts: posts.reverse(),  username: req.session.user.username, profilePhoto: req.session.user.profilePhoto});
     });
+
   },
   New: function(req, res) {
     res.render('posts/new', {});
@@ -25,7 +26,18 @@ var PostsController = {
     post.save(function(err){
       if (err) {throw err;}
       res.status(201).redirect('/posts');
-    })
+    });
+  },
+
+  CountLikes: function(req,) {
+    Post.findByIdAndUpdate(
+      req.params.id,
+       { $inc: { likes: 1 } },
+      {new: true}, 
+      function(err) {
+        if (err) { throw err; }
+      }
+    )
   }
 };
 
