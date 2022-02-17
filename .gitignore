@@ -72,3 +72,4 @@ package-lock.json
 # 
 public/uploads/profilePhotos
 public/uploads/authorPhotos
+public/uploads/postedPhotos

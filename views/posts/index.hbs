@@ -5,11 +5,16 @@
 <form action='/posts/new' method ='GET'>
 <button type="submit" class="btn btn-primary btn-lg outline" style="display: block; margin-left: auto; margin-right: auto">New Post</button>
 </form>
-<a class="photo-link" href="/photos">View photos here</a>
+<br>
+{{!-- <a class="photo-link" href="/photos">View photos here</a> --}}
+<form action='/photos' method ='GET'>
+<button type="submit" class="btn btn-primary btn-lg outline" style="display: block; margin-left: auto; margin-right: auto">View photos here</button>
+</form>
 <br>
  {{#each posts}}
- <div class="posts" style="width: 18rem; padding-left: 10px;">
-  <div class="posts-body" style ="border-style:solid; border-radius:10px; border-color: #357ebd;">
+ <div class="posts" style="padding-left: 10px;"></div>
+ {{!-- <div class="posts" style="width: 18rem; padding-left: 10px;"> --}}
+  <div class="posts-body" style ="text-align:center; border-style:solid; border-radius:10px; border-color: #357ebd;">
     <h2 class="card-title">{{this.message}}</h2>
        <img src='../uploads/authorPhotos/{{this.authorPhoto}}' style="border-radius:50%;width:70px;height:70px>
        <h4 class="card-title">Posted by: {{this.author}}</h4>
@@ -17,7 +22,8 @@
     <form action="/comments/{{this.id}}" method='GET'>
       <button class="btn btn-primary btn-lg outline" style='border: transparent;' type='submit'>Comments</button>
     </form>
-    <button id={{this.id}} class="btnclick" onclick="CountLikes(this);" type="button"> Like <p id="display">{{this.likes}}</p></button>
+    {{!-- class="btnclick" --}}
+    <button id={{this.id}} class="btn btn-primary btn-lg outline"  onclick="CountLikes(this);" type="button"> Like <p id="display">{{this.likes}}</p></button>
     <script type="text/javascript">
         var count = 0;
         function CountLikes(element) {
