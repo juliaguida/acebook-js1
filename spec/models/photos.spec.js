@@ -1,24 +1,18 @@
 var mongoose = require('mongoose');
 
 require('../mongodb_helper')
-var Post = require('../../models/post');
+var Post = require('../../models/photos');
 
-describe('Post model', function() {
+describe('Photo model', function() {
   beforeEach(function(done) {
-      mongoose.connection.collections.posts.drop(function() {
+      mongoose.connection.collections.photos.drop(function() {
           done();
       });
   });
 
   it('has a message', function() {
-    var post = new Post({ message: 'some message'});
+    var post = new Post({ message: 'some message' });
     expect(post.message).toEqual('some message');
-  });
-
-  it('has an author', function (){ 
-    var post = new Post ({author: 'justine'});
-    expect(post.author).toEqual('justine');
-
   });
 
   it('can list all posts', function(done) {

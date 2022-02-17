@@ -2,15 +2,15 @@
 <html>
   <head>
     <!--<title>{{title}}</title>-->
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="navBar.css">
+    <link rel="stylesheet" href="/stylesheets/style.css" /> 
+    <link rel="stylesheet" href="/stylesheets/navBar.css">
+    <link rel="stylesheet" href="/stylesheets/button.css">
     <script src="navBar.js"></script>
   </head>
   <body>
 
-    <form action='/sessions?_method=DELETE' method='POST'>
-    </form>
+    {{!-- <form action='/sessions?_method=DELETE' method='POST'>
+    </form> --}}
 
     <nav class="navBar">
       <div class="navBar-title">Acebook</div>
@@ -23,7 +23,9 @@
       <ul>
         <li><a href="/users/new">Sign Up</a></li>
         <li><a href="/sessions/new">Sign In</a></li>
-        <li><a href="/sessions?_method=DELETE">Log Out</a></li>
+        <form id= 'log-out'action='/sessions?_method=DELETE' method='POST'>
+        <li><a href="javascript:{}" onclick= "document.getElementById('log-out').submit(); return false;">Log out</a> </li> 
+        </form>
         </ul>
       </div> 
     </nav>

@@ -1,5 +1,19 @@
-<form id="new-post-form" action="/posts" method="post">
+<div style='padding-left: 10px;'>
+<h1>New Post</h1>
+<form id="new-post-form" action="/posts" method="post" enctype="multipart/form-data">
+ <label for="author">Author: </label>
+   <input id="author" type="text" name="author" value="">
+   <br>
+   <label for="authorPhoto">Author photo: </label>
+    <input id="authorPhoto" type="file" name="authorPhoto">
+   <br>
   <label for="message">Message: </label>
   <input id="message" type="text" name="message" value="">
-  <input type="submit" value="Submit">
+  <br>
+  <input class="btn btn-primary btn-lg outline" type="submit" value="Submit">
+</form>
+</div>
+<br>
+<form action='/posts' method ='GET'>
+<button type="submit" class="btn btn-primary btn-lg outline" style="display: block; margin-left: auto; margin-right: auto">Back to timeline</button>
 </form>
