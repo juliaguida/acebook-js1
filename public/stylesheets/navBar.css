@@ -8,6 +8,12 @@ body {
    padding: 0;
 }
 
+.logo img{
+  display: flex;
+  width: 40%;
+  height: 40%;
+}
+
 .navBar {
   display: flex;
   justify-content: space-between;
