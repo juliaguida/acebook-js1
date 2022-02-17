@@ -8,11 +8,15 @@
 <a class="photo-link" href="/photos">View photos here</a>
 <br>
  {{#each posts}}
-<div class="posts" style="width: 18rem; padding-left: 10px;">
+ <div class="posts" style="width: 18rem; padding-left: 10px;">
   <div class="posts-body" style ="border-style:solid; border-radius:10px; border-color: #357ebd;">
     <h2 class="card-title">{{this.message}}</h2>
-      <p class="card-title">{{this.createdAt}}</p>
-    <a href= "/comments/{{this.id}}" class="card-link">Comments</a>
+       <img src='../uploads/authorPhotos/{{this.authorPhoto}}' style="border-radius:50%;width:70px;height:70px>
+       <h4 class="card-title">Posted by: {{this.author}}</h4>
+      <h4 class="card-title">Posted at: {{this.createdAt}}</h4>
+    <form action="/comments/{{this.id}}" method='GET'>
+      <button class="btn btn-primary btn-lg outline" style='border: transparent;' type='submit'>Comments</button>
+    </form>
     <button id={{this.id}} class="btnclick" onclick="CountLikes(this);" type="button"> Like <p id="display">{{this.likes}}</p></button>
     <script type="text/javascript">
         var count = 0;
@@ -32,3 +36,9 @@
         console.log(element)
         }
     </script>
+  </div>
+</div>
+<br>
+{{/each}}
+    
+ 
