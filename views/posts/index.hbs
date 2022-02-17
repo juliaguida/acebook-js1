@@ -23,7 +23,7 @@
       <button class="btn btn-primary btn-lg outline" style='border: transparent;' type='submit'>Comments</button>
     </form>
     {{!-- class="btnclick" --}}
-    <button id={{this.id}} class="btn btn-primary btn-lg outline"  onclick="CountLikes(this);" type="button"> Like <p id="display">{{this.likes}}</p></button>
+    <button id={{this.id}} class="btn btn-primary btn-lg outline" style= 'height:100px; width:100px'  onclick="CountLikes(this);" type="button"> Like <h3 id="display">{{this.likes}}</h3></button>
     <script type="text/javascript">
         var count = 0;
         function CountLikes(element) {
@@ -42,6 +42,8 @@
         console.log(element)
         }
     </script>
+    <br>
+    <br>
   </div>
 </div>
 <br>
