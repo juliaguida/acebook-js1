@@ -3,14 +3,18 @@ describe('Photo Timeline', function() {
     cy.visit('/sessions/new');
     cy.pause();
     cy.get('#new-session-form').submit();
-    cy.url('/photos');
+    cy.url('/posts');
+    cy.contains("View photos here").click();
 
     // cy.visit('/photos');
     cy.contains('New photo').click();
 
-    cy.get('#new-photo-form').find('[type="text"]').type('Hello, world!');
-    cy.get('#new-photo-form').submit();
-
-    cy.get('.photos').should('contain', 'Hello, world!');
+    cy.fixture('example.jpg').then(fileContent => {
+      cy.get('input[type="file"]').attachFile({
+          fileContent: fileContent.toString(),
+          fileName: 'example.jpg',
+          mimeType: 'image/png'
+      });
+  });
   });
 });

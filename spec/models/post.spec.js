@@ -29,6 +29,12 @@ describe('Post model', function() {
     });
   });
 
+  it('contains a like button', function() {
+    var post = new Post ({likes: 5});
+    expect(post.likes).toEqual(5);
+
+    });
+
   it('can save a post', function(done) {
     var post = new Post({ message: 'some message' });
 

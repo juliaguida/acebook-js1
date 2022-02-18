@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 require('../mongodb_helper')
-var Post = require('../../models/photos');
+var Photo = require('../../models/photos');
 
 describe('Photo model', function() {
   beforeEach(function(done) {
@@ -10,29 +10,29 @@ describe('Photo model', function() {
       });
   });
 
-  it('has a message', function() {
-    var post = new Post({ message: 'some message' });
-    expect(post.message).toEqual('some message');
+  it('has a title', function() {
+    var photo = new Photo({ title: 'some title' });
+    expect(photo.title).toEqual('some title');
   });
 
-  it('can list all posts', function(done) {
-    Post.find(function(err, posts) {
+  it('can list all photos', function(done) {
+    Photo.find(function(err, photos) {
       expect(err).toBeNull();
-      expect(posts).toEqual([]);
+      expect(photos).toEqual([]);
       done();
     });
   });
 
   it('can save a post', function(done) {
-    var post = new Post({ message: 'some message' });
+    var photo = new Photo({ title: 'some title' });
 
-    post.save(function(err) {
+    photo.save(function(err) {
       expect(err).toBeNull();
 
-      Post.find(function(err, posts) {
+      Photo.find(function(err, photos) {
         expect(err).toBeNull();
 
-        expect(posts[0]).toMatchObject({ message: 'some message' });
+        expect(photos[0]).toMatchObject({ title: 'some title' });
         done();
       });
     });
