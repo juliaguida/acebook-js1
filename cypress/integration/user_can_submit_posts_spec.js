@@ -6,13 +6,12 @@ describe('Timeline', function() {
     cy.url('/posts');
 
     // cy.visit('/posts');
-    cy.contains('New post').click();
-    cy.contains('Like 0').click();
+    cy.contains('New Post').click();
 
     cy.get('#new-post-form').find('[type="text"]').get('#message').type('Hello, world!');
     cy.get('#new-post-form').find('[type="text"]').get('#author').type('justine')
     cy.get('#new-post-form').submit();
 
-    cy.get('.posts').should('contain', 'Hello, world!');
+    cy.get('.posts').get('.card-title').should('contain', 'Hello, world!');
   });
 });

@@ -12,7 +12,7 @@ var PhotosController = {
   New: function(req, res) {
     res.render('photos/upload', {});
   },
-  Create: function(req, res, next)  {
+  Create: function(req, res)  {
     const options = { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }
     var fileName = req.file != null ? req.file.filename : null;
     var photo = new Photo ( {

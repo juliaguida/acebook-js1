@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-const path = require('path');
 var profilePhotoBasePath = 'uploads/profilePhotos';
 
 var UserSchema = new mongoose.Schema({
